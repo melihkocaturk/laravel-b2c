@@ -5,9 +5,14 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $status = [
         false => 'Passive',
         true => 'Active'
@@ -26,7 +31,7 @@ class Product extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('status', true);
+        return $query->where('status', true)->where('deleted_at', null);
     }
 
     public function scopeFeatured($query)
@@ -37,5 +42,10 @@ class Product extends Model
     public function categories()
     {
         return $this->belongsToMany('App\Category');
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany('App\Order');
     }
 }

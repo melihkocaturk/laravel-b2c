@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('sku');
             $table->boolean('status')->default(true);
             $table->boolean('featured')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

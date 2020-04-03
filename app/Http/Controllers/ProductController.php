@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('categories')
+        $products = Product::active()->with('categories')
             ->when(request('category'), function($query) {
                 return $query->whereHas('categories', function($q) {
                     $q->where('slug', request()->category);

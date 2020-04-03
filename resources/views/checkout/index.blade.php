@@ -57,6 +57,11 @@
       <h4 class="mb-3">Billing address</h4>
       <form action="{{ route('checkout.store') }}" method="post" novalidate>
         {{ csrf_field() }}
+        <input type="hidden" name="subtotal" value="{{ $subtotal }}">
+        <input type="hidden" name="tax" value="{{ $tax }}">
+        <input type="hidden" name="total" value="{{ $total }}">
+        <input type="hidden" name="discount" value="{{ $discount }}">
+        <input type="hidden" name="promoCode" value="{{ session()->get('coupon')['name'] }}">
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
@@ -112,15 +117,15 @@
         <h4 class="mb-3">Payment</h4>
         <div class="d-block my-3">
           <div class="custom-control custom-radio">
-            <input name="paymentMethod" type="radio" class="custom-control-input" id="credit" checked>
+            <input name="paymentMethod" type="radio" class="custom-control-input" id="credit" value="credit" checked>
             <label class="custom-control-label" for="credit">Credit card</label>
           </div>
           <div class="custom-control custom-radio">
-            <input name="paymentMethod" type="radio" class="custom-control-input" id="debit">
+            <input name="paymentMethod" type="radio" class="custom-control-input" id="debit" value="debit">
             <label class="custom-control-label" for="debit">Debit card</label>
           </div>
           <div class="custom-control custom-radio">
-            <input name="paymentMethod" type="radio" class="custom-control-input" id="paypal">
+            <input name="paymentMethod" type="radio" class="custom-control-input" id="paypal" value="paypal">
             <label class="custom-control-label" for="paypal">PayPal</label>
           </div>
         </div>
