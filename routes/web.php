@@ -29,6 +29,19 @@ Route::put('/cart/{id}', 'CartController@update')->name('cart.update');
 Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
 Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 
+// Coupon
+Route::post('/coupon', 'CouponController@store')->name('coupon.store');
+Route::delete('/coupon', 'CouponController@destroy')->name('coupon.destroy');
+
 // Pages
 Route::view('/about', 'pages.about')->name('pages.about');
 Route::view('/contact', 'pages.contact')->name('pages.contact');
+
+// Voyager
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+// Authentication
+Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout');

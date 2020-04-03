@@ -81,7 +81,7 @@
         </div>
         <div class="col-sm-12 col-md-6 text-right">
           @if (Cart::count() > 0)
-            <a href="{{ route('checkout.index') }}" class="btn btn-block btn-success">Checkout</a>
+            <a href="{{ route('checkout.index') }}" class="btn btn-block btn-primary">Checkout</a>
           @endif
         </div>
       </div>

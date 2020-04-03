@@ -46,7 +46,7 @@ class CartController extends Controller
 
         Cart::update($id, $request->quantity);
 
-        return back()->with('success', 'Quantity has been updated');;
+        return back()->with('success', 'Quantity has been updated');
     }
 
     /**

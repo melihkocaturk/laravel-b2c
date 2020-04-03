@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('subtitle');
             $table->text('description')->nullable();
-            $table->string('slug')->unique();
+            $table->string('slug')->nullable();
             $table->float('price', 8, 2);
             $table->integer('quantity');
             $table->string('sku');

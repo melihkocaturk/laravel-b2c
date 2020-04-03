@@ -13,34 +13,45 @@
             <span class="text-muted">@money($item->price)</span>
           </li>
         @endforeach
-        <li class="list-group-item d-flex justify-content-between bg-light">
-          <div class="text-success">
-            <h6 class="my-0">Promo code</h6>
-            <small>EXAMPLECODE</small>
-          </div>
-          <span class="text-success">-$5</span>
-        </li>
+        @if (session()->has('coupon'))
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+              <small>{{ session()->get('coupon')['name'] }} - <a href="#" onclick="document.getElementById('coupon').submit()">Remove</a></small>
+              <form action="{{ route('coupon.destroy') }}" method="post" id="coupon">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+              </form>
+            </div>
+            <span class="text-success">-@money($discount)</span>
+          </li>
+        @endif
         <li class="list-group-item d-flex justify-content-between">
           <span>Sub-Total</span>
-          @money(Cart::subtotal())
+          @money($subtotal)
         </li>
         <li class="list-group-item d-flex justify-content-between">
           <span>Tax</span>
-          @money(Cart::tax())
+          @money($tax)
         </li>
         <li class="list-group-item d-flex justify-content-between">
           <span>Total</span>
-          <strong>@money(Cart::total())</strong>
+          <strong>@money($total)</strong>
         </li>
       </ul>
-      <form class="card p-2">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Promo code">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-secondary">Redeem</button>
-          </div>
+      @unless (session()->has('coupon'))
+        <div class="card p-2">
+          <form action="{{ route('coupon.store') }}" method="post">
+            {{ csrf_field() }}
+            <div class="input-group">
+              <input type="text" name="code" class="form-control" placeholder="Promo code">
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-secondary">Redeem</button>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
+      @endif
     </div>
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Billing address</h4>
@@ -58,7 +69,7 @@
         </div>
         <div class="mb-3">
           <label for="email">Email <span class="text-muted">(Optional)</span></label>
-          <input type="email" name="email" class="form-control" id="email" placeholder="you@example.com">
+          <input type="email" name="email" class="form-control" id="email" value="{{ Auth::user()->email }}" placeholder="you@example.com" readonly>
         </div>
         <div class="mb-3">
           <label for="address">Address</label>

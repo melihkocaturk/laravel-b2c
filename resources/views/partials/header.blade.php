@@ -13,6 +13,12 @@
           <a class="nav-item nav-link {{ Route::current()->getName() == 'pages.contact' ? 'active' : '' }}" href="{{ route('pages.contact') }}" href="{{ route('pages.contact') }}">Contact</a>
         </div>
         <div class="navbar-nav">
+          @unless (Auth::check())
+            <a class="nav-item nav-link" href="{{ route('register') }}">Sign Up</a>
+            <a class="nav-item nav-link" href="{{ route('login') }}">Login</a>
+          @else
+            <a class="nav-item nav-link" href="{{ url('/logout') }}">Logout</a>
+          @endif
           <a class="nav-item nav-link {{ Route::current()->getName() == 'cart.index' ? 'active' : '' }}" href="{{ route('cart.index') }}">Cart
             @if (Cart::count() > 0)
               <span class="badge badge-pill badge-light">{{ Cart::count() }} </span>

@@ -6,7 +6,7 @@
   {{ Breadcrumbs::render('product', $product) }}
   <div class="row">
     <div class="col-lg-9">
-      <img class="img-fluid mb-4" src="http://placehold.it/900x400" alt="{{ $product->name }}">
+      <img class="img-fluid mb-4" src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}">
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
@@ -15,8 +15,8 @@
           <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
         </li>
       </ul>
-      <div class="tab-content mb-4">
-        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">{{ $product->description }}</div>
+      <div class="tab-content py-3">
+        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">{!! $product->description !!}</div>
         <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">...</div>
       </div>
     </div>

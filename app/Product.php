@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
@@ -17,6 +18,12 @@ class Product extends Model
         return Arr::get($this->status, $value);
     }
 
+    public function setSlugAttribute($value)
+    {
+        $str = ($value) ? $value : $this->name.'-'.$this->id ;
+        $this->attributes['slug'] = Str::slug($str);
+    }
+
     public function scopeActive($query)
     {
         return $query->where('status', true);
@@ -27,7 +34,8 @@ class Product extends Model
         return $query->where('featured', true);
     }
 
-    public function categories() {
+    public function categories()
+    {
         return $this->belongsToMany('App\Category');
     }
 }

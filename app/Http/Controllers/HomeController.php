@@ -8,9 +8,9 @@ use App\Product;
 class HomeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
@@ -18,5 +18,4 @@ class HomeController extends Controller
 
         return view('welcome')->with('products', $products);
     }
-
 }
