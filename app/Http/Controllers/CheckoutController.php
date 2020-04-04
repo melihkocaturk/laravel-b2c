@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\DB;
 use App\Order;
 use App\OrderProduct;
 
@@ -93,6 +94,9 @@ class CheckoutController extends Controller
                 'price' => $item->price,
                 'total' => $item->total
             ]);
+
+            DB::table('products')->where('id', $item->model->id)
+                ->decrement('quantity', $item->qty);
         }
 
         Cart::destroy();

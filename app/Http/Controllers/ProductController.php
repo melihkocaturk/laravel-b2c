@@ -44,7 +44,11 @@ class ProductController extends Controller
     public function show($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
+        $stockLevel = stockLevel($product->quantity);
 
-        return view('products.show')->with('product', $product);
+        return view('products.show')->with([
+              'product' => $product,
+              'stockLevel' => $stockLevel
+        ]);
     }
 }

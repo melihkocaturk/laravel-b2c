@@ -31,7 +31,9 @@ class Product extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('status', true)->where('deleted_at', null);
+        return $query->where('status', true)
+            ->where('deleted_at', null)
+            ->where('quantity', '>', 0);
     }
 
     public function scopeFeatured($query)

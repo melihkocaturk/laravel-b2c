@@ -27,6 +27,7 @@
                   <form action="{{ route('cart.update', $item->rowId) }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
+                    <input type="hidden" name="productQuantity" value="{{ $item->model->quantity }}">
                     <div class="input-group">
                       <input type="text" name="quantity" class="form-control form-control-sm" value="{{ $item->qty }}">
                       <div class="input-group-append">

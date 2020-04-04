@@ -19,15 +19,17 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/products', 'ProductController@index')->name('product.index');
 Route::get('/product/{slug}', 'ProductController@show')->name('product.show');
 
-// Cart
-Route::get('/cart', 'CartController@index')->name('cart.index');
-Route::post('/cart', 'CartController@store')->name('cart.store');
-Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
-Route::put('/cart/{id}', 'CartController@update')->name('cart.update');
+Route::middleware('product.quantity')->group(function () {
+    // Cart
+    Route::get('/cart', 'CartController@index')->name('cart.index');
+    Route::post('/cart', 'CartController@store')->name('cart.store');
+    Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
+    Route::put('/cart/{id}', 'CartController@update')->name('cart.update');
 
-// Checkout
-Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
-Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
+    // Checkout
+    Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+    Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
+});
 
 // Coupon
 Route::post('/coupon', 'CouponController@store')->name('coupon.store');
