@@ -35,7 +35,7 @@
           <input type="hidden" name="name" value="{{ $product->name }}">
           <input type="hidden" name="price" value="{{ $product->price }}">
           <div class="input-group mb-3">
-            <input type="text" name="quantity" class="form-control" placeholder="1">
+            <input type="text" name="quantity" class="form-control" value="1">
             <div class="input-group-append">
               <input type="submit" class="btn btn-primary" value="Add to Cart">
             </div>
