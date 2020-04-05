@@ -35,9 +35,9 @@ php artisan migrate --seed
 ```
 ### 4. Install Voyager
 
-Documentation available from https://voyager-docs.devdojo.com/getting-started/installation
+Documentation available from https://voyager-docs.devdojo.com/getting-started/installation.
 
-Add "stock_threshold" setting when installation is complete
+Add "stock_threshold" setting when installation is complete.
 
 ## Preview
 
