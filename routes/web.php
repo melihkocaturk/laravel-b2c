@@ -18,6 +18,7 @@ Route::get('/', 'HomeController@index')->name('home');
 // Products
 Route::get('/products', 'ProductController@index')->name('product.index');
 Route::get('/product/{slug}', 'ProductController@show')->name('product.show');
+Route::get('/search', 'ProductController@search')->name('product.search');
 
 Route::middleware('product.quantity')->group(function () {
     // Cart

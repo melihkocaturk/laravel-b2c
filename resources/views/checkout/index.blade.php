@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+  {{ Breadcrumbs::render('checkout') }}
   <div class="row">
     <div class="col-md-4 order-md-2 mb-4">
       <ul class="list-group mb-3">

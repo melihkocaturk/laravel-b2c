@@ -6,16 +6,33 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Product extends Model
 {
     use SoftDeletes;
+    use SearchableTrait;
 
     protected $dates = ['deleted_at'];
 
     protected $status = [
         false => 'Passive',
         true => 'Active'
+    ];
+
+    protected $searchable = [
+        /**
+         * Columns and their priority in search results.
+         * Columns with higher values are more important.
+         * Columns with equal values have equal importance.
+         *
+         * @var array
+         */
+        'columns' => [
+            'products.name' => 10,
+            'products.subtitle' => 6,
+            'products.description' => 3
+        ]
     ];
 
     public function getStatusAttribute($value)

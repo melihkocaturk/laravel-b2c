@@ -51,4 +51,22 @@ class ProductController extends Controller
               'stockLevel' => $stockLevel
         ]);
     }
+
+    public function search(Request $request)
+    {
+        $request->validate([
+            'key' => 'required|min:5'
+        ]);
+
+        $key = request()->key;
+
+        $products = Product::active()
+            ->search($key)
+            ->when(request('sort'), function($query) {
+                $query->orderBy(request()->sort, request()->order);
+            })
+            ->paginate(12);
+
+        return view('products.search')->with('products', $products);
+    }
 }

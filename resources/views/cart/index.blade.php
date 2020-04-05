@@ -3,6 +3,7 @@
 @section('title', 'Cart')
 
 @section('content')
+  {{ Breadcrumbs::render('cart') }}
   <h1 class="h3 mb-4">Cart</h1>
   <div class="row">
     <div class="col-12">

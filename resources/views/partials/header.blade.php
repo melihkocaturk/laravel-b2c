@@ -12,6 +12,14 @@
           <a class="nav-item nav-link {{ Route::current()->getName() == 'pages.about' ? 'active' : '' }}" href="{{ route('pages.about') }}" href="{{ route('pages.about') }}">About</a>
           <a class="nav-item nav-link {{ Route::current()->getName() == 'pages.contact' ? 'active' : '' }}" href="{{ route('pages.contact') }}" href="{{ route('pages.contact') }}">Contact</a>
         </div>
+        <form action="{{ route('product.search') }}" class="my-2 my-lg-0 mr-2" method="get">
+          <div class="input-group">
+            <input type="text" name="key" class="form-control form-control-sm" value="{{ request()->key }}" placeholder="Search">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-sm btn-secondary"><i class="fa fa-search fa-fw"></i></button>
+            </div>
+          </div>
+        </form>
         <div class="navbar-nav">
           @unless (Auth::check())
             <a class="nav-item nav-link" href="{{ route('register') }}">Sign Up</a>

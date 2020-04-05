@@ -3,6 +3,7 @@
 @section('title', 'About')
 
 @section('content')
+  {{ Breadcrumbs::render('about') }}
   <h1 class="h3 mb-4">About</h1>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo a felis eget molestie. Pellentesque pulvinar dolor augue, eget consectetur nisl tempor ac. Quisque posuere congue elementum. Integer consequat tristique mauris. Phasellus sed tincidunt mauris. Mauris non mattis enim, ac aliquam enim. Nunc vitae bibendum erat.</p>
   <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis quis quam libero. Proin sed malesuada nunc. Suspendisse auctor felis eu ante tincidunt tincidunt. Curabitur eu leo lacinia sem finibus posuere sed dignissim dolor. Aliquam eu est augue. Cras vehicula faucibus rhoncus. Praesent consectetur ligula iaculis cursus ultricies. Praesent egestas nisi vel ornare efficitur. Vivamus libero dui, efficitur eget finibus a, dignissim elementum urna. Curabitur efficitur libero eu lacus volutpat tincidunt. Sed ac sagittis urna. Sed accumsan varius egestas.</p>

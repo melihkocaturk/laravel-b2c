@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "be693322ee20d3d9b7aeddc72cd0ec7f",
+    "content-hash": "54cd9881ed6ccea039589e5a64906895",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -1580,6 +1580,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -1626,6 +1627,7 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
@@ -2422,6 +2424,52 @@
                 "time"
             ],
             "time": "2020-03-24T16:01:47+00:00"
+        },
+        {
+            "name": "nicolaslopezj/searchable",
+            "version": "1.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nicolaslopezj/searchable.git",
+                "reference": "b1d24ea45f75e36a11a093efa46fe44c06dd10b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nicolaslopezj/searchable/zipball/b1d24ea45f75e36a11a093efa46fe44c06dd10b7",
+                "reference": "b1d24ea45f75e36a11a093efa46fe44c06dd10b7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "illuminate/database": ">=4.2",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nicolaslopezj\\Searchable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Lopez",
+                    "email": "nicolaslopezj@me.com"
+                }
+            ],
+            "description": "Eloquent model search trait.",
+            "keywords": [
+                "database",
+                "eloquent",
+                "laravel",
+                "model",
+                "search",
+                "searchable"
+            ],
+            "time": "2020-03-30T12:30:18+00:00"
         },
         {
             "name": "nikic/php-parser",
