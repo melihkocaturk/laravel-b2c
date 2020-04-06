@@ -8,6 +8,7 @@ Laravel B2C is an open source PHP based online e-commerce solution. Develop your
 * Bootstrap 4
 * Shopping Cart
 * Search
+* Comments
 * Checkout
 * Promo Code
 * [Voyager Admin](https://github.com/the-control-group/voyager)
@@ -50,4 +51,3 @@ Add "stock_threshold" setting when installation is complete.
 ![Cart](public/preview/04.png)
 
 ![Checkout](public/preview/05.png)
-
