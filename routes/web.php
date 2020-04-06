@@ -40,6 +40,9 @@ Route::delete('/coupon', 'CouponController@destroy')->name('coupon.destroy');
 Route::view('/about', 'pages.about')->name('pages.about');
 Route::view('/contact', 'pages.contact')->name('pages.contact');
 
+// Comments
+Route::post('/comment', 'CommentController@store')->name('comment.store');
+
 // Voyager
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

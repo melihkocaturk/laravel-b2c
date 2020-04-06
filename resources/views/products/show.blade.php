@@ -7,18 +7,6 @@
   <div class="row">
     <div class="col-lg-9">
       <img class="img-fluid mb-4" src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}">
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
-        </li>
-      </ul>
-      <div class="tab-content py-3">
-        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">{!! $product->description !!}</div>
-        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">...</div>
-      </div>
     </div>
     <!-- /.col-lg-9 -->
     <div class="col-lg-3 mb-4">
@@ -46,4 +34,50 @@
     <!-- /.col-lg-3 -->
   </div>
   <!-- /.row -->
+
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
+    </li>
+  </ul>
+  <div class="tab-content py-3">
+    <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">{!! $product->description !!}</div>
+    <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+      @if (Auth::check())
+        <div class="card mb-3">
+          <div class="card-header">
+            Write a customer review
+          </div>
+          <div class="card-body">
+            <form action="{{ route('comment.store') }}" method="post">
+              {{ csrf_field() }}
+              <input type="hidden" name="id" value="{{ $product->id }}">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="title" class="form-control" id="title" aria-describedby="titleHelp">
+                <small id="titleHelp" class="form-text text-muted">Optional</small>
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" class="form-control" id="description" rows="3"></textarea>
+              </div>
+              <input type="submit" class="btn btn-primary" value="Send">
+            </form>
+          </div>
+        </div>
+      @endif
+      @foreach ($product->comments as $comment)
+        <div class="card mb-3 bg-light border-0">
+          <div class="card-body">
+            <p class="card-title"><strong>{{ $comment->title }}</strong></p>
+            <p class="card-text">{{ $comment->description }}</p>
+          </div>
+        </div>
+      @endforeach
+    </div>
+  </div>
+
 @endsection
