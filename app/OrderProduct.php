@@ -13,6 +13,6 @@ class OrderProduct extends Model
         'product_id',
         'quantity',
         'price',
-        'total'
+        'total',
     ];
 }

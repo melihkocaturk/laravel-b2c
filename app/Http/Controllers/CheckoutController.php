@@ -40,7 +40,7 @@ class CheckoutController extends Controller
             'discount' => $discount,
             'subtotal' => $subtotal,
             'tax' => $tax,
-            'total' => $total
+            'total' => $total,
         ]);
     }
 
@@ -82,7 +82,7 @@ class CheckoutController extends Controller
             'tax' => $request->tax,
             'total' => $request->total,
             'discount' => $request->discount,
-            'promo_code' => $request->promoCode
+            'promo_code' => $request->promoCode,
         ]);
 
         // Order Product
@@ -92,7 +92,7 @@ class CheckoutController extends Controller
                 'product_id' => $item->model->id,
                 'quantity' => $item->qty,
                 'price' => $item->price,
-                'total' => $item->total
+                'total' => $item->total,
             ]);
 
             DB::table('products')->where('id', $item->model->id)

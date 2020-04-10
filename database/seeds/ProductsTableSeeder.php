@@ -12,14 +12,14 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=1; $i < 51; $i++) {
+        for ($i=1; $i <= 50; $i++) {
             Product::create([
                 'name' => 'Product ' . $i,
                 'subtitle' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                 'slug' => 'product-' . $i,
                 'price' => rand(10, 100),
                 'quantity' => rand(10, 100),
-                'sku' => 'sku ' . $i
+                'sku' => 'sku ' . $i,
             ])->categories()->attach(rand(1, 5));
         }
 

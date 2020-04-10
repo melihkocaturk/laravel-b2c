@@ -27,14 +27,14 @@ class CommentController extends Controller
     {
         $request->validate([
             'id' => 'required',
-            'description' => 'required'
+            'description' => 'required',
         ]);
 
         Comment::create([
             'user_id' => auth()->user()->id,
             'product_id' => $request->id,
             'title' => $request->title,
-            'description' => $request->description
+            'description' => $request->description,
         ]);
 
         return back()->with('success', 'Your comment has been saved');

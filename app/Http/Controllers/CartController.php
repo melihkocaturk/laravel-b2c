@@ -41,7 +41,7 @@ class CartController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'quantity' => 'required|numeric'
+            'quantity' => 'required|numeric',
         ]);
 
         Cart::update($id, $request->quantity);

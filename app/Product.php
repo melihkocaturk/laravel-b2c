@@ -17,7 +17,7 @@ class Product extends Model
 
     protected $status = [
         false => 'Passive',
-        true => 'Active'
+        true => 'Active',
     ];
 
     protected $searchable = [
@@ -31,7 +31,7 @@ class Product extends Model
         'columns' => [
             'products.name' => 10,
             'products.subtitle' => 6,
-            'products.description' => 3
+            'products.description' => 3,
         ]
     ];
 

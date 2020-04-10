@@ -10,9 +10,9 @@ class Comment extends Model
         'user_id',
         'product_id',
         'title',
-        'description'
+        'description',
     ];
-    
+
     public function user()
     {
         return $this->belonsTo('App\User');

@@ -21,7 +21,7 @@ class Order extends Model
         'total',
         'discount',
         'promo_code',
-        'error'
+        'error',
     ];
 
     public function user()
@@ -34,7 +34,7 @@ class Order extends Model
         return $this->belongsToMany('App\Product')->withPivot([
             'quantity',
             'price',
-            'total'
+            'total',
         ]);
     }
 }

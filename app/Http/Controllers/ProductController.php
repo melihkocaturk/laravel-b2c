@@ -31,7 +31,7 @@ class ProductController extends Controller
 
         return view('products.index')->with([
             'products' => $products,
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 
@@ -52,14 +52,14 @@ class ProductController extends Controller
 
         return view('products.show')->with([
             'product' => $product,
-            'stockLevel' => $stockLevel
+            'stockLevel' => $stockLevel,
         ]);
     }
 
     public function search(Request $request)
     {
         $request->validate([
-            'key' => 'required|min:5'
+            'key' => 'required|min:5',
         ]);
 
         $key = request()->key;

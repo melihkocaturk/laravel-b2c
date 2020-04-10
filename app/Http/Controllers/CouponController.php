@@ -25,7 +25,7 @@ class CouponController extends Controller
 
         session()->put('coupon', [
             'name' => $coupon->code,
-            'discount' => $coupon->discount(Cart::subtotal())
+            'discount' => $coupon->discount(Cart::subtotal()),
         ]);
 
         return redirect()->route('checkout.index')->with('success', 'Coupon has been applied');

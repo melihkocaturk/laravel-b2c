@@ -9,7 +9,7 @@ class Category extends Model
 {
     public function setSlugAttribute($value)
     {
-        $str = ($value) ? $value : $this->name.'-'.$this->id ;
+        $str = ($value) ? $value : $this->name.'-'.$this->id;
         $this->attributes['slug'] = Str::slug($str);
     }
 

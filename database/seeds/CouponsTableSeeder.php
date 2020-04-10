@@ -16,14 +16,14 @@ class CouponsTableSeeder extends Seeder
         Coupon::create([
             'code' => 'PRM10',
             'type' => 'numeric',
-            'value' => 10
+            'value' => 10,
         ]);
 
         Coupon::create([
             'code' => 'PRM20',
             'type' => 'percentage',
             'value' => 20,
-            'expired_at' => Carbon::now()->add(30, 'day')
+            'expired_at' => Carbon::now()->add(30, 'day'),
         ]);
     }
 }
